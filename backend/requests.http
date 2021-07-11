@@ -1,0 +1,26 @@
+# Main page
+GET http://localhost:8080/
+
+### Get city
+GET http://localhost:8080/Guatemala
+
+
+### Get pagination
+
+GET http://localhost:8080/page/123
+
+### Get city by id
+
+GET http://localhost:8080/city/a
+
+### Get all country cities
+
+GET http://localhost:8080/cities/GTM
+
+### ----------- Country ----------
+
+### Main page
+GET http://localhost:8080/country/
+
+### Get single country
+GET http://localhost:8080/country/name/Guatemala
