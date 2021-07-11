@@ -6,4 +6,4 @@ export const countryRouter = Router();
 countryRouter 
     // Get
     .get('/', mainPage)
-    .get('/name/?:name', getCountryByName)
+    .get('/name/:name?', getCountryByName)
