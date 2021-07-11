@@ -16,7 +16,8 @@ export const MainRouter = () => {
 
         <Navbar />
         <Switch>
-            <Route exact path='/' component={CountryScreen} />
+            <Route exact path="/" />
+            <Route path='/countries' component={CountryScreen} />
             <Route path='/cities' component={CityScreen} />
             <Redirect to='/'/>
         </Switch>
