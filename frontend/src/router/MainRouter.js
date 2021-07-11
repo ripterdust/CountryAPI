@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import { CityScreen } from '../components/city/CityScreen';
 import { CountryScreen } from '../components/country/CountryScreen';
+import { HomeScreen } from '../components/mainPage/HomeScreen';
 
 import { Navbar } from '../components/ui/Navbar';
 
@@ -16,7 +17,7 @@ export const MainRouter = () => {
 
         <Navbar />
         <Switch>
-            <Route exact path="/" />
+            <Route exact path="/" component={HomeScreen}/>
             <Route path='/countries' component={CountryScreen} />
             <Route path='/cities' component={CityScreen} />
             <Redirect to='/'/>
