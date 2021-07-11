@@ -1,10 +1,18 @@
 .style_navbar{
-    position: sticky;
     width: 100%;
     height: 5vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 1.5em 0;
+    letter-spacing: 3px;
+    font-weight: 700;
+
+    a{
+        width: 150px;
+        text-align: center;
+        letter-spacing: 2px;
+    }
 
     .style_navbar_link{
         display: flex;
@@ -14,8 +22,33 @@
         font-size: 20px;
     }
     .style_navbar_link_home{
-        font-size: 25px;
-        margin: 0 15px;
         color: $primary;
+        font-size: 25px;
+        text-transform: uppercase;
+        transition: .3s ease-in;
+        position: relative;
+        &:hover{
+            color: darken($color: $primary, $amount: 7);
+            letter-spacing: 3px;
+        }
+
+        &::before{
+            content: '';
+            position: absolute;
+            background-color: $primary;
+            height: 3px;
+            width: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateY(100%);
+            transition: .2s ease-in;
+        }   
+        &:hover::before{
+            left: 0;
+            width: 100%;
+            background-color: darken($color: $primary, $amount: 7);
+        }
+
+
     }
 }
