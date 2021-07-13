@@ -1,10 +1,10 @@
-import express from 'express';
+import express, { Application, Request, Response } from 'express';
 import { router } from './routers/cityRouter';
 import { countryRouter } from './routers/countryRoutes';
 const cors = require('cors');
 
 // Initializatin express
-export const app = express();
+export const app: Application = express();
 
 // Settings
 app.set('port', process.env.PORT || 8080); 
@@ -24,6 +24,6 @@ app.use('/country', countryRouter);
 // Languages routes
 
 
-app.use('*', (req, res) => {
+app.use('*', (req: Request, res: Response) => {
     res.send({error: 'Page not found'}).status(200);
 })
