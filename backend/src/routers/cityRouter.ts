@@ -2,7 +2,7 @@ import { Router } from 'express';
 import {  getCitiesByCountryCode, getCity, mainPage, pagination } from '../controllers/cityController';
 
 // Inicializating router
-export const router = Router();
+export const router: Router = Router();
 
 // Routes
 router
