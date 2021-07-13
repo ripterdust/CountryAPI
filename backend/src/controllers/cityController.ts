@@ -30,11 +30,11 @@ export const pagination = async (req: Request, res: Response) => {
 
     let { number } = req.params;
     try{
-        let limit: number = 10
+        let limit: number = 10;
         let page: any = number ? parseInt(number) : 1;
 
         if(page <= 0 || page.typeOf != Number){
-            page = 1
+            page = 1;
         }
         // Getting data
         const cities: object = await City.findAll({
