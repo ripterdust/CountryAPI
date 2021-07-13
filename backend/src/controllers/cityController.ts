@@ -1,4 +1,5 @@
 import { City } from '../models/city';
+import { Request, Response } from 'express';
 import { Op } from 'sequelize'
 import { error } from '../responses/responses';
 
@@ -6,10 +7,10 @@ import { error } from '../responses/responses';
 const queryAtrributes = ['ID', 'Name', 'CountryCode', 'District', 'Population'];
 
 // Main page 
-export const mainPage = async (req, res) => {
+export const mainPage = async (req: Request, res: Response) => {
 
     // Getting cities
-    const cities = await City.findAll({
+    const cities: object = await City.findAll({
         attributes: queryAtrributes,
         limit : 10, 
         where: {
@@ -25,18 +26,18 @@ export const mainPage = async (req, res) => {
 
 
 // Obtaining city with optional limit
-export const pagination = async (req, res) => {
+export const pagination = async (req: Request, res: Response) => {
 
     let { number } = req.params;
     try{
-        let limit = 10
-        let page = number ? parseInt(number) : 1;
+        let limit: number = 10
+        let page: any = number ? parseInt(number) : 1;
 
         if(page <= 0 || page.typeOf != Number){
             page = 1
         }
         // Getting data
-        const cities = await City.findAll({
+        const cities: object = await City.findAll({
             attributes: queryAtrributes,
             limit,
             where: {
@@ -55,11 +56,11 @@ export const pagination = async (req, res) => {
 
 // Obtaining city
 
-export const getCity = async (req, res) => {
-    const param = req.params.id;
+export const getCity = async (req: Request, res: Response) => {
+    const param: string = req.params.id;
     try{
-        const id = param ? parseInt(param) : 1;      
-        const city = await City.findAll({
+        const id : number = param ? parseInt(param) : 1;      
+        const city: object = await City.findAll({
             attributes: queryAtrributes,
             where: {
                 ID: {
@@ -75,11 +76,11 @@ export const getCity = async (req, res) => {
 
 
 // Getting cities by country code
-export const getCitiesByCountryCode = async (req, res) => {
+export const getCitiesByCountryCode = async (req: Request, res: Response) => {
     try{
         const { code } = req.params;
 
-        const cities = await City.findAll({
+        const cities: any = await City.findAll({
             attributes: queryAtrributes,
             where: {
                 CountryCode:{

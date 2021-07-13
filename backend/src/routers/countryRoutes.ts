@@ -1,5 +1,5 @@
-import { Router } from 'express';
-import { countryPagination, getCountryByName, mainPage } from '../controllers/countryControllers';
+import { Router, } from 'express';
+import { getCountryByName, mainPage } from '../controllers/countryControllers';
 
 export const countryRouter = Router();
 

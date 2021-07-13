@@ -1,10 +1,10 @@
 import { Op } from 'sequelize';
 import { Country } from '../models/country';
-import { error } from '../responses/responses.ts';
-
+import { error } from '../responses/responses';
+import { Response, Request } from 'express';
 
 // Query attributes
-const queryAttributes = ['Code', 
+const queryAttributes: string[] = ['Code', 
 'Name', 
 'Continent', 
 'Region', 
@@ -22,9 +22,9 @@ const queryAttributes = ['Code',
 ];
 
 // Main page settings
-export const mainPage = async (req, res) => {
+export const mainPage = async (req: Request, res: Response) => {
     try{
-        const country = await Country.findAll({
+        const country: object = await Country.findAll({
             attributes: queryAttributes
         });
         res.send([country]);
@@ -34,10 +34,10 @@ export const mainPage = async (req, res) => {
 }
 
 // Get country
-export const getCountryByName = async (req, res) => {
+export const getCountryByName = async (req: Request, res: Response) => {
     const { name } = req.params;
     try{
-        const country = await Country.findAll({
+        const country: object = await Country.findAll({
             attributes: queryAttributes,
             where: {
                 name: {
