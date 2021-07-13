@@ -1,6 +1,6 @@
 import { Op } from 'sequelize';
 import { Country } from '../models/country';
-import { error } from '../responses/responses';
+import { error } from '../responses/responses.ts';
 
 
 // Query attributes
